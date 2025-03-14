@@ -1,0 +1,20 @@
+# Example configuration file for AfkCommandPlugin
+
+# Inactivity timeout (in minutes) before a player is flagged as AFK.
+afk-timeout: 5
+
+# Command to execute when a player is flagged as AFK.
+# Use {player} as a placeholder for the player's name.
+afk-command: "switchserver {player} PlayerReady-Lobby"
+
+# Message sent to the player when they are flagged as AFK.
+message-afk: "You are now flagged as AFK."
+
+# Message sent to the player when they become active again.
+message-back: "Welcome back!"
+
+# Permission node that allows players to bypass the AFK check.
+bypass-permission: "afk.bypass"
+
+# Interval (in seconds) at which the plugin checks for inactive players.
+check-interval: 60

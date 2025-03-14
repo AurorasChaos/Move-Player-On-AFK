@@ -1,0 +1,16 @@
+name: AfkCommandPlugin
+main: com.AurorasChaos.afkcommand.AfkCommandPlugin
+version: 1.0
+api-version: 1.21.4
+author: AurorasChaos
+commands:
+  afkreload:
+    description: Reloads the AFK plugin configuration.
+    usage: /afkreload
+permissions:
+  afk.reload:
+    description: Allows reloading the AFK plugin configuration.
+    default: op
+  afk.bypass:
+    description: Allows a player to bypass the AFK check.
+    default: false
