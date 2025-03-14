@@ -1,55 +1,56 @@
-AfkCommandPlugin
-Author: AurorasChaos
+# AfkCommandPlugin
+
+**Author:** AurorasChaos
 
 AfkCommandPlugin is a Spigot plugin for Minecraft 1.21.4 that detects when a player is AFK (inactive) for a configurable period (default 5 minutes) and then executes a command to switch them to a specified lobby server. It also notifies the player when they become AFK and when they return, and includes a reload command for updating configuration without restarting the server.
 
-Features
-AFK Detection:
-Automatically detects player inactivity based on movement and chat events.
+## Features
 
-Customizable Timeout:
-Configure the AFK timeout duration (in minutes) in the config.yml.
+- **AFK Detection:**  
+  Automatically detects player inactivity based on movement and chat events.
 
-Custom Command Execution:
-Executes a command (switchserver <playerName> PlayerReady-Lobby) when a player is flagged as AFK. The command can be modified via the config file using {player} as a placeholder.
+- **Customizable Timeout:**  
+  Configure the AFK timeout duration (in minutes) in the `config.yml`.
 
-Player Notifications:
-Sends a configurable message to players when they are flagged as AFK and when they become active again.
+- **Custom Command Execution:**  
+  Executes a command (`switchserver <playerName> PlayerReady-Lobby`) when a player is flagged as AFK. The command can be modified via the config file using `{player}` as a placeholder.
 
-Reloadable Configuration:
-Use the /afkreload command (permission: afk.reload) to reload the plugin configuration on the fly.
+- **Player Notifications:**  
+  Sends a configurable message to players when they are flagged as AFK and when they become active again.
 
-Bypass Permission:
-Players with the afk.bypass permission are excluded from the AFK check.
+- **Reloadable Configuration:**  
+  Use the `/afkreload` command (permission: `afk.reload`) to reload the plugin configuration on the fly.
 
-Installation
-Clone or Download the Repository:
-Clone the repository to your local machine using:
+- **Bypass Permission:**  
+  Players with the `afk.bypass` permission are excluded from the AFK check.
 
-bash
-Copy
-git clone https://github.com/YourUsername/AfkCommandPlugin.git
-or download the ZIP and extract it.
+## Installation
 
-Build the Plugin with Maven:
-Navigate to the project directory and run:
+1. **Clone or Download the Repository:**  
+   Clone the repository to your local machine using:
+   ```bash
+   git clone https://github.com/YourUsername/AfkCommandPlugin.git
+   ```
+   or download the ZIP and extract it.
 
-bash
-Copy
-mvn clean package
-This will generate the plugin JAR file (e.g., AfkCommandPlugin-1.0.jar) in the target directory.
+2. **Build the Plugin with Maven:**  
+   Navigate to the project directory and run:
+   ```bash
+   mvn clean package
+   ```
+   This will generate the plugin JAR file (e.g., `AfkCommandPlugin-1.0.jar`) in the target directory.
 
-Deploy the Plugin:
-Copy the generated JAR file into your Spigot server's plugins directory.
+3. **Deploy the Plugin:**  
+   Copy the generated JAR file into your Spigot server's `plugins` directory.
 
-Restart or Reload Your Server:
-Restart your server or reload plugins (using a plugin manager) for the plugin to load.
+4. **Restart or Reload Your Server:**  
+   Restart your server or reload plugins (using a plugin manager) for the plugin to load.
 
-Configuration
-After the first run, a default config.yml file will be generated in your server's plugins/AfkCommandPlugin folder. Open this file to customize settings:
+## Configuration
 
-yaml
-Copy
+After the first run, a default `config.yml` file will be generated in your server's `plugins/AfkCommandPlugin` folder. Open this file to customize settings:
+
+```yaml
 # Timeout before a player is flagged as AFK (in minutes)
 afk-timeout: 5
 
@@ -68,54 +69,63 @@ message-back: "Welcome back!"
 
 # Permission node to bypass the AFK check.
 bypass-permission: "afk.bypass"
+```
+
 Feel free to adjust the timeout, command, messages, and other parameters to suit your server's needs.
 
-Usage
-AFK Detection:
+## Usage
+
+### AFK Detection
 Once installed, the plugin will start monitoring player activity. If a player remains inactive for the configured duration (default 5 minutes), they will be switched to the lobby with the command:
 
-php-template
-Copy
+```bash
 switchserver <playerName> PlayerReady-Lobby
-and they will receive the message defined in message-afk.
+```
 
-Return Notification:
-When an AFK player moves or chats again, the plugin will send them the message defined in message-back.
+and they will receive the message defined in `message-afk`.
 
-Reloading Configuration:
+### Return Notification
+When an AFK player moves or chats again, the plugin will send them the message defined in `message-back`.
+
+### Reloading Configuration
 To reload the configuration without restarting the server, use the command:
 
-bash
-Copy
+```bash
 /afkreload
-This command requires the afk.reload permission (by default granted to ops).
+```
 
-Bypassing AFK Check:
-Players with the afk.bypass permission will not be subjected to the AFK check.
+This command requires the `afk.reload` permission (by default granted to ops).
 
-Permissions
-afk.reload
-Allows reloading the plugin configuration using /afkreload (default: op).
+### Bypassing AFK Check
+Players with the `afk.bypass` permission will not be subjected to the AFK check.
 
-afk.bypass
-Allows players to bypass the AFK check (default: false).
+## Permissions
 
-Development
-Prerequisites
-Java 17 or higher
-Maven
-Spigot 1.21.4 API
-Build
+| Permission     | Description                                             | Default |
+|---------------|---------------------------------------------------------|---------|
+| `afk.reload`  | Allows reloading the plugin configuration using `/afkreload` | op      |
+| `afk.bypass`  | Allows players to bypass the AFK check                 | false   |
+
+## Development
+
+### Prerequisites
+- Java 17 or higher
+- Maven
+- Spigot 1.21.4 API
+
+### Build
 Run the following command in the project directory:
 
-bash
-Copy
+```bash
 mvn clean package
-This will compile the plugin and package it into a JAR file located in the target directory.
+```
 
-Contributing
+This will compile the plugin and package it into a JAR file located in the `target` directory.
+
+## Contributing
+
 Contributions are welcome! Feel free to fork the repository and submit pull requests with improvements or bug fixes.
 
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
+## License
 
+This project is licensed under the GPL-3.0 License. See the LICENSE file for details.
